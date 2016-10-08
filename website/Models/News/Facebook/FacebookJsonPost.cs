@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace LSOU.Web.Models.Facebook
+namespace LSOU.Web.Models.News.Facebook
 {
-    public class FBPost
+    public class FacebookJsonPost
     {
         [JsonProperty("message")]
         public String Message { get; set; }

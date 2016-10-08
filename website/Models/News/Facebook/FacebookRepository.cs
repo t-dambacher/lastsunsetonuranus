@@ -6,18 +6,18 @@ using System.IO;
 using System.Linq;
 using System.Net;
 
-namespace LSOU.Web.Models.Facebook
+namespace LSOU.Web.Models.News.Facebook
 {
-    public class FBRepository
+    public class FacebookRepository : INewsRepository
     {
-        private static readonly Int32 _numberofFeeds = 15;
+        private static readonly Int32 _numberofFeeds = 1;
         private static readonly String _accessToken = ConfigurationManager.AppSettings["FacebookAccessToken"];
         private static readonly String _feedRequestUrl = "https://graph.facebook.com/v2.8/lastsunsetonuranus/posts?limit=" + _numberofFeeds + "&locale=fr&access_token=" + _accessToken;
 
-        public FBRepository()
+        public FacebookRepository()
         { }
 
-        public IEnumerable<FBPost> GetLatestPosts()
+        public IEnumerable<FacebookJsonPost> GetLatestPosts()
         {
             HttpWebRequest feedRequest = (HttpWebRequest)WebRequest.Create(_feedRequestUrl);
             feedRequest.Method = "GET";
@@ -28,9 +28,14 @@ namespace LSOU.Web.Models.Facebook
             {
                 using (StreamReader reader = new StreamReader(feedResponse.GetResponseStream()))
                 {
-                    return JsonConvert.DeserializeObject<FBPostsCollection>(reader.ReadToEnd()).ToList();
+                    return JsonConvert.DeserializeObject<FacebookJsonPostsCollection>(reader.ReadToEnd()).ToList();
                 }
             }
+        }
+
+        IEnumerable<News> INewsRepository.GetLatestPosts()
+        {
+            return GetLatestPosts().Select(n => new FacebookNews(n)).ToList();
         }
     }
 }
