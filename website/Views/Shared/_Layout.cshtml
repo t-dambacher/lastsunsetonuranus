@@ -17,11 +17,10 @@
             </nav>
         </div>
         <div class="container body-content">
-            @RenderBody()
             <div id="view-container">
-
+                @RenderBody()
+                @RenderSection("Content", required: false)
             </div>
-            @RenderSection("SPAViews", required: false)
             <footer>
                 <p>&copy; @DateTime.Now.Year - Last Sunset On Uranus</p>
             </footer>

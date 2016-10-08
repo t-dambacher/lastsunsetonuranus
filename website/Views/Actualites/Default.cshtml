@@ -1,3 +1,8 @@
-﻿@section SPAViews {
+﻿@if (Request.IsAjaxRequest())
+{
+    Html.RenderPartial("_Actualites");
+}
+
+@section Content {
     @Html.Partial("_Actualites")
 }
