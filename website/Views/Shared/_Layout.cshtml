@@ -10,21 +10,17 @@
 <body>
     <div class="container">
         <div class="row">
-            <nav>
-                <div class="col-xs-4"><a href="/Actualites" onclick="return loadView('Actualites');">Actualités</a></div>
-                <div class="col-xs-4"><a href="/Medias" onclick="return loadView('Medias');">Medias</a></div>
-                <div class="col-xs-4"><a href="/Contact" onclick="return loadView('Contacts');">Contacts</a></div>
-            </nav>
+            @Html.Partial("Menu")
         </div>
-        <div class="container body-content">
-            <div id="view-container">
-                @RenderBody()
-                @RenderSection("Content", required: false)
-            </div>
-            <footer>
-                <p>&copy; @DateTime.Now.Year - Last Sunset On Uranus</p>
-            </footer>
-        </div>
+    </div>
+    <div id="view-container" class="container body-content fill">
+        @RenderBody()
+        @RenderSection("Content", required: false)
+    </div>
+    <div class="container">
+        <footer class="text-center">
+            <p>&copy; @DateTime.Now.Year - Last Sunset On Uranus</p>
+        </footer>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/site")

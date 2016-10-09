@@ -3,8 +3,7 @@ using System.Web.Mvc;
 
 namespace LSOU.Web.Controllers
 {
-    [AllowAnonymous]
-    public class MediasController : ContentController
+    public class MusiqueController : ContentController
     {
         protected override Object GetContent()
         {

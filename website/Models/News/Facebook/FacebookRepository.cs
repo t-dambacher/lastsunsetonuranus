@@ -10,7 +10,7 @@ namespace LSOU.Web.Models.News.Facebook
 {
     public class FacebookRepository : INewsRepository
     {
-        private static readonly Int32 _numberofFeeds = 1;
+        private static readonly Int32 _numberofFeeds = 10;
         private static readonly String _accessToken = ConfigurationManager.AppSettings["FacebookAccessToken"];
         private static readonly String _feedRequestUrl = "https://graph.facebook.com/v2.8/lastsunsetonuranus/posts?limit=" + _numberofFeeds + "&locale=fr&access_token=" + _accessToken;
 

@@ -1,0 +1,11 @@
+﻿@using LSOU.Web.Models.Menu
+<nav>
+    @{
+        IEnumerable<MenuItem> items = Menu.Current.OrderBy(i => i.Order).ToList();
+        Int32 colSize = 12 / items.Count();
+        foreach (MenuItem item in items)
+        {
+            <div class='col-xs-@colSize text-center menu-item'><a href='/@item.Url' onclick=\"return loadView('@item.ContentViewName');\">@item.DisplayName</a></div>
+        }
+    }
+</nav>

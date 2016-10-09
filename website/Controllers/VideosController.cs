@@ -3,7 +3,7 @@ using System.Web.Mvc;
 
 namespace LSOU.Web.Controllers
 {
-    public class ContactsController : ContentController
+    public class VideosController : ContentController
     {
         protected override Object GetContent()
         {

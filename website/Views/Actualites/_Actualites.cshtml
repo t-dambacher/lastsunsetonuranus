@@ -1,3 +1,17 @@
-﻿<div class="row">
+﻿@using LSOU.Web.Models.News
+
+<div class="row">
     Actualités
+    
+    <div>
+        <div>Newsfeed FB</div>
+        <div>
+            @{
+                foreach (News post in NewsRepository.GetLatestPosts())
+                {
+                    Html.RenderPartial("News", post);
+                }
+            }
+        </div>
+    </div>
 </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LSOU.Web.Models.Menu;
+using System;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -9,20 +10,22 @@ namespace LSOU.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            const String defaultAction = "Default";
 
-            foreach (String view in new[] { "Actualites", "Medias", "Contacts" })
+            foreach (MenuItem view in Menu.Current)
             {
                 routes.MapRoute(
-                    name: view,
-                    url: view + "/",
-                    defaults: new { controller = view, action = "Default" }
+                    name: view.Name,
+                    url: view.Url,
+                    defaults: new { controller = view.Name, action = defaultAction }
                 );
             }
 
+            MenuItem defaultItem = Menu.Current.GetDefaultItem();
             routes.MapRoute(
-                name: "Default",
+                name: defaultAction,
                 url: "{controller}/{action}",
-                defaults: new { controller = "Actualites", action = "Default" }
+                defaults: new { controller = defaultItem.Name, action = defaultAction }
             );
         }
     }
