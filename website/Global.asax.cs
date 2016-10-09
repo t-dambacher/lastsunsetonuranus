@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LSOU.Web.Views;
+using System;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -15,6 +16,8 @@ namespace LSOU.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new ContentViewEngine());
         }
 
         protected void Application_Error(Object sender, EventArgs e)

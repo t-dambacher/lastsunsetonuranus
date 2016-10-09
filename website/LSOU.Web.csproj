@@ -160,6 +160,7 @@
     <Compile Include="Models\News\News.cs" />
     <Compile Include="Models\News\NewsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ContentViewEngine.cs" />
     <Compile Include="Views\HtmlHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -197,10 +198,8 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Contacts\_Contacts.cshtml" />
-    <Content Include="Views\Contacts\Default.cshtml" />
-    <Content Include="Views\Actualites\Default.cshtml" />
     <Content Include="Views\Medias\_Medias.cshtml" />
-    <Content Include="Views\Medias\Default.cshtml" />
+    <Content Include="Views\Shared\Default.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

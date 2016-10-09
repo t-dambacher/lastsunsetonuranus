@@ -1,0 +1,8 @@
+﻿@if (Request.IsAjaxRequest())
+{
+    Html.RenderPartial(Html.CurrentView());
+}
+
+@section Content {
+    @Html.Partial(Html.CurrentView())
+}
